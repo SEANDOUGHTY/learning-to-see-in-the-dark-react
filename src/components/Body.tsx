@@ -22,13 +22,13 @@ const Body = () => {
             <h3>Input Image</h3>
             {inputFileURL === null ?
               <div className="placeholder-image"></div> :
-              <img src={inputFileURL} className="display-image" alt="placeholder" />}
+              <img src={inputFileURL!} className="display-image" alt="placeholder" />}
           </div>
           <div className="col-lg-6">
             <h3>Processed Image</h3>
             {outputFileURL === null ?
               <div className="placeholder-image"></div> :
-              <img src={outputFileURL} className="display-image" alt="placeholder" />}
+              <img src={outputFileURL!} className="display-image" alt="placeholder" />}
           </div>
         </div>
       </div>

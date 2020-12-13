@@ -3,22 +3,20 @@ import axios from "axios"
 
 function InputForm(props:any): JSX.Element {
   
-  const fileInput = useRef(null);
+  const fileInput = useRef(undefined);
   const [fileValue, setfileValue] = useState("Choose image");
   const [sliderValue, setsliderValue] = useState(1);
 
   const handleClick = (event: any): void => {
     event.preventDefault();
-    let file = fileInput.current.files[0];
-
-    if (typeof file === 'undefined') {
+    if (fileInput.current === undefined || fileInput.current.files.length === 0) {
       return
     }
     let form_data = new FormData();
     form_data.append('image', fileInput.current.files[0], fileInput.current.files[0].name);
     form_data.append('ratio', String(sliderValue))
     
-    let url = 'http://localhost:5000/upload';
+    let url = 'http://localhost:5000/upload'; 
     axios.post(url, form_data, {
       headers: {
         'content-type': 'multipart/form-data'
@@ -32,12 +30,14 @@ function InputForm(props:any): JSX.Element {
         })
         .catch(err => console.log(err))
     
-  }
+  } 
     
   const handleFileChange = (event: any) => {
     event.preventDefault();
-    setfileValue(fileInput.current.files[0].name);
-    props.inputCallBack((URL.createObjectURL(fileInput.current.files[0])));
+    if (fileInput.current.files.length !== 0){
+      setfileValue(fileInput.current!.files[0]);
+      props.inputCallBack((URL.createObjectURL(fileInput.current.files[0])));
+    }
   };
 
   const handleSliderChange = (event: any) => {
