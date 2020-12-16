@@ -21,12 +21,9 @@ function InputForm(props:any): JSX.Element {
       headers: {
         'content-type': 'multipart/form-data'
       },
-      responseType: 'blob'
     })
       .then(res => {
-        
-        console.log(res.data)
-        props.outputCallBack(URL.createObjectURL(res.data));
+        props.outputCallBack(res.data)
         })
         .catch(err => console.log(err))
     
@@ -34,8 +31,8 @@ function InputForm(props:any): JSX.Element {
     
   const handleFileChange = (event: any) => {
     event.preventDefault();
-    if (fileInput.current.files.length !== 0){
-      setfileValue(fileInput.current!.files[0]);
+    if (fileInput.current.files.length !== 0) {
+      setfileValue(fileInput.current.files[0].name);
       props.inputCallBack((URL.createObjectURL(fileInput.current.files[0])));
     }
   };
