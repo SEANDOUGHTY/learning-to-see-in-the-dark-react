@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react';
 import InputForm from './InputForm';
 import axios from "axios"
 
-let url = 'http://flask-6s44:8080/download';
+let url = 'https://flask-6s44:8080/download';
 
 const Body = () => {
   // file URL state
@@ -12,8 +12,8 @@ const Body = () => {
   
   useEffect(() => {
     const interval = setInterval(() => {
-        console.log("Every 5 seconds")
-        console.log(outputFileName)
+        // console.log("Every 5 seconds")
+        // console.log(outputFileName)
         if (outputFileName !== null) {
           axios.get(url, { params: { fileName: outputFileName}, responseType: 'blob' } )
             .then(res => {
