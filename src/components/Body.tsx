@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react';
 import InputForm from './InputForm';
 import axios from "axios"
 
-let url = 'https://flask-6s44:8080/download';
+let url = 'https://flask-6s44.onrender.com/download';
 
 const Body = () => {
   // file URL state
