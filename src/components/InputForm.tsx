@@ -16,7 +16,7 @@ function InputForm(props:any): JSX.Element {
     form_data.append('image', fileInput.current.files[0], fileInput.current.files[0].name);
     form_data.append('ratio', String(sliderValue))
     
-    let url = 'http://localhost:5000/upload'; 
+    let url = 'flask-6s44:8080/upload'; 
     axios.post(url, form_data, {
       headers: {
         'content-type': 'multipart/form-data'
