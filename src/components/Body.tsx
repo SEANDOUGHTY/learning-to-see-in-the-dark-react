@@ -1,24 +1,29 @@
-import React, {useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import InputForm from './InputForm';
 import axios from "axios"
 
-let url = 'https://flask-6s44.onrender.com/download';
+let url = 'https://flask-6s44.onrender.com';
 
 const Body = () => {
   // file URL state
   const [inputFileURL, setinputFileURL] = useState(null);
   const [outputFileName, setoutputFileName] = useState(null);
   const [outputFileURL, setoutputFileURL] = useState(null);
-  
+  const [processing, setProcessing] = useState(false);  
+
   useEffect(() => {
     const interval = setInterval(() => {
-        // console.log("Every 5 seconds")
-        // console.log(outputFileName)
+        
         if (outputFileName !== null) {
-          axios.get(url, { params: { fileName: outputFileName}, responseType: 'blob' } )
+          axios.get(`${url}/download`,
+            {
+              params: { fileName: outputFileName },
+              responseType: 'blob'
+            })
             .then(res => {
-              setoutputFileURL(URL.createObjectURL(res.data))
-              setoutputFileName(null)
+              setoutputFileURL(URL.createObjectURL(res.data));
+              setProcessing(false);
+              setoutputFileName(null);
             })
             .catch(err => console.log(err))
           }
@@ -31,7 +36,12 @@ const Body = () => {
       <div className="container">
         <div className="row">
           <div className="col-lg-6">
-            <InputForm inputCallBack={setinputFileURL} outputCallBack={setoutputFileName}/>
+            <InputForm
+              inputCallBack={setinputFileURL}
+              outputCallBack={setoutputFileName}
+              processingCallBack={setProcessing}
+              processing={processing}
+            />
           </div>
           <div className="col-lg-6">
           </div>

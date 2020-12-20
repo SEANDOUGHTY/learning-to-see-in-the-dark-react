@@ -18,6 +18,27 @@ code {
   margin-top: 10px;
 }
 
+.error-text{
+  margin-left: 10px;
+  color: red; 
+}
+
+.status{
+  height: 38px;
+}
+
+.status-indicator{
+  float: left;
+  margin-right: 30px;
+}
+
+.status-text{
+  margin-left: 10px;
+  padding-top: 20px;
+  color: black;
+  font-weight: bold;
+}
+
 .image-row {
   margin-top: 20px;
 }
