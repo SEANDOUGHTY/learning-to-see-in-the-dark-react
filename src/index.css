@@ -14,6 +14,10 @@ code {
     monospace;
 }
 
+.content{
+  padding: 50px;
+}
+
 .slider{
   margin-top: 10px;
 }
