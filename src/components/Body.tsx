@@ -1,6 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import InputForm from './InputForm';
 import axios from "axios"
+import { GoogleLogin } from 'react-google-login';
+
+const responseGoogle = (response) => {
+  console.log(response);
+}
 
 let url = 'https://flask-6s44.onrender.com';
 
@@ -36,6 +41,13 @@ const Body = () => {
       <div className="container">
         <div className="row">
           <div className="col-lg-6">
+          <GoogleLogin
+              clientId="211163425735-cnc2bja4s1hgdle6flu6ikqa2264l325.apps.googleusercontent.com"
+              buttonText="Login"
+              onSuccess={responseGoogle}
+              onFailure={responseGoogle}
+              className="login"
+          />
             <InputForm
               inputCallBack={setinputFileURL}
               outputCallBack={setoutputFileName}
