@@ -1,78 +1,13 @@
-import React, { useState, useEffect } from 'react';
-import InputForm from './InputForm';
-import axios from "axios"
-import { GoogleLogin } from 'react-google-login';
-
-const responseGoogle = (response) => {
-  console.log(response);
-}
-
-let url = 'https://flask-6s44.onrender.com';
+import React from 'react';
+import SeeDarkDemo from './SeeDarkDemo'
+import Content from './Content'
 
 const Body = () => {
   // file URL state
-  const [inputFileURL, setinputFileURL] = useState(null);
-  const [outputFileName, setoutputFileName] = useState(null);
-  const [outputFileURL, setoutputFileURL] = useState(null);
-  const [processing, setProcessing] = useState(false);  
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-        
-        if (outputFileName !== null) {
-          axios.get(`${url}/download`,
-            {
-              params: { fileName: outputFileName },
-              responseType: 'blob'
-            })
-            .then(res => {
-              setoutputFileURL(URL.createObjectURL(res.data));
-              setProcessing(false);
-              setoutputFileName(null);
-            })
-            .catch(err => console.log(err))
-          }
-        }, 5000);
-    return () => clearInterval(interval);
-  }, [outputFileName]);
-
   return (
-    <div className="content">
-      <div className="container">
-        <div className="row">
-          <div className="col-lg-6">
-          <GoogleLogin
-              clientId="211163425735-cnc2bja4s1hgdle6flu6ikqa2264l325.apps.googleusercontent.com"
-              buttonText="Login"
-              onSuccess={responseGoogle}
-              onFailure={responseGoogle}
-              className="login"
-          />
-            <InputForm
-              inputCallBack={setinputFileURL}
-              outputCallBack={setoutputFileName}
-              processingCallBack={setProcessing}
-              processing={processing}
-            />
-          </div>
-          <div className="col-lg-6">
-          </div>
-        </div>
-        <div className="row image-row">
-          <div className="col-lg-6">
-            <h3>Input Image</h3>
-            {inputFileURL === null ?
-              <div className="placeholder-image"></div> :
-              <img src={inputFileURL!} className="display-image" alt="placeholder" />}
-          </div>
-          <div className="col-lg-6">
-            <h3>Processed Image</h3>
-              {outputFileURL === null ?
-              <div className="placeholder-image"></div> :
-              <img src={outputFileURL!} className="display-image" alt="placeholder" />}
-          </div>
-        </div>
-      </div>
+    <div className="body">
+      <Content />
+      <SeeDarkDemo />
     </div>
   )
 };
