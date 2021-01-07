@@ -3,7 +3,9 @@ import InputForm from './InputForm';
 import axios from "axios"
 
 
-let url = 'https://flask-6s44.onrender.com';
+// let url = 'https://flask-6s44.onrender.com';
+let url = 'http://localhost:5000';
+
 const SeeDarkDemo = () => {
   // file URL state
   const [inputFileURL, setinputFileURL] = useState(null);

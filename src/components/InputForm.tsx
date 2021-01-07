@@ -3,7 +3,8 @@ import axios from "axios"
 import { Ellipsis } from 'react-awesome-spinners'
 
 
-let url = 'https://flask-6s44.onrender.com';
+// let url = 'https://flask-6s44.onrender.com';
+let url = 'http://localhost:5000';
 
 function checkServer() {
   axios.get(`${url}/checkinstance`)
@@ -37,11 +38,11 @@ function InputForm(props:any): JSX.Element {
     form_data.append('image', fileInput.current.files[0], fileInput.current.files[0].name);
     form_data.append('ratio', String(sliderValue))
     
-    
     axios.post(`${url}/upload`, form_data, {
       headers: {
         'content-type': 'multipart/form-data'
       },
+      'withCredentials': true,
     })
       .then(res => {
         props.outputCallBack(res.data);
@@ -49,8 +50,15 @@ function InputForm(props:any): JSX.Element {
         setErrorText("");
         })
       .catch(err => {
+        console.log("ERROR BLOCK")
+        props.processingCallBack(false)
         setStatusText("");
-        setErrorText("Please select valid .png file");
+        if (err.response.status === 429) {
+          setErrorText("Too many requests, try again later")
+        }
+        else {
+          setErrorText("Please select valid .png file");
+        }
         console.log(err);
       })
     
