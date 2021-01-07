@@ -49,10 +49,12 @@ function InputForm(props:any): JSX.Element {
         setErrorText("");
         })
       .catch(err => {
-        console.log("ERROR BLOCK")
         props.processingCallBack(false)
         setStatusText("");
-        if (err.response.status === 429) {
+        if (typeof err.response === 'undefined') {
+          setErrorText("Server Error")
+        }
+        else if (err.response.status === 429) {
           setErrorText("Too many requests, try again later")
         }
         else {
