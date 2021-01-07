@@ -3,8 +3,7 @@ import axios from "axios"
 import { Ellipsis } from 'react-awesome-spinners'
 
 
-// let url = 'https://flask-6s44.onrender.com';
-let url = 'http://localhost:5000';
+let url = 'https://flask-6s44.onrender.com';
 
 function checkServer() {
   axios.get(`${url}/checkinstance`)
