@@ -6,7 +6,7 @@ const Content = (): JSX.Element => (
     <h1>Learning to See in the Dark Inference</h1>
     <h4>January 2021</h4>
     <p>
-        This project is a demo for a machine learning exploration I worked on with Andrew Maksymowsky and Frank Gu. We started with a cool <a href="https://cchen156.github.io/paper/18CVPR_SID.pdf">machine learning paper</a> which used a CNN (Convolutional Neural Net) to process low light images. The paper used RAW input images and we wanted to try to instead train the model instead with <em>.png</em> files.
+        This project is a demo for a machine learning exploration I worked on with Andrew Maksymowsky and Frank Gu. We started with a cool <a href="https://cchen156.github.io/paper/18CVPR_SID.pdf">machine learning paper</a> which used a CNN (Convolutional Neural Net) to process low light images. The paper used RAW input images and we wanted to try to instead train the model with <em>.png</em> files.
   </p>
   <h3>Model</h3>   
     <p>
