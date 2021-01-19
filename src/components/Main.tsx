@@ -16,7 +16,9 @@ const Main = () => {
       <div className="row">
         <div className="col-md-3">
           <img src="/img/sean.png" alt="Sean Doughty headshot" width="100%" style={{
-            borderRadius: "50%"
+              borderRadius: "50%",
+              marginBottom: "20px"
+            
           } }/>
 
         </div>

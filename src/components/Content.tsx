@@ -2,6 +2,7 @@ import React from 'react';
 
 const Content = (): JSX.Element => (
   <div className="content">
+    <div className="container">
     <div className="text-content">
     <h1>Learning to See in the Dark Inference</h1>
     <h4>January 2021</h4>
@@ -63,7 +64,7 @@ const Content = (): JSX.Element => (
         <li><a href="https://github.com/SEANDOUGHTY/learning-to-see-in-the-dark-worker">Inference Worker</a></li>
       </ul>
     </p>
-    
+    </div>
   </div>
 );
 
