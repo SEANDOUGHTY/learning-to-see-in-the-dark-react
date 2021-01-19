@@ -5,12 +5,14 @@ import axios from "axios"
 
 let url = 'https://flask-6s44.onrender.com';
 
+
 const SeeDarkDemo = () => {
   // file URL state
   const [inputFileURL, setinputFileURL] = useState(null);
   const [outputFileName, setoutputFileName] = useState(null);
   const [outputFileURL, setoutputFileURL] = useState(null);
   const [processing, setProcessing] = useState(false);  
+  document.title = "Learning to See In the Dark"  
 
   useEffect(() => {
     const interval = setInterval(() => {

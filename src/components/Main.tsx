@@ -4,8 +4,11 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPython, faReact, faJava, faGit, faDocker, faAws, faLinkedin, faGithub, faMedium } from '@fortawesome/free-brands-svg-icons'
 import { faEnvelope }  from '@fortawesome/free-solid-svg-icons'
 
+
+
 const Main = () => {
   // file URL state
+  document.title = "Sean Doughty"
   return (
     <div className="content">
     <div className="container" style={{
