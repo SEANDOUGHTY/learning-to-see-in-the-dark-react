@@ -7,8 +7,8 @@ import {
 //import logo from './logo.svg';
 import './App.css';
 import Header from './components/Header';
-import Body from './components/Body'
-import Login from './components/Login';
+import Main from './components/Main'
+import Project from './components/Project';
 import Footer from './components/Footer';
 
 function App(): JSX.Element {
@@ -16,12 +16,12 @@ function App(): JSX.Element {
     <div>
       <Header />
       <Router>
-      <Switch>
-          <Route path="/">
-            <Body />
+        <Switch>
+          <Route path="/projects/learning-to-see-in-the-dark">
+            <Project />
           </Route>
-          <Route path="/login">
-            <Login />
+          <Route path="/">
+            <Main />
           </Route>
         </Switch>
         </Router>

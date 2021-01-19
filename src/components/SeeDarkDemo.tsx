@@ -33,7 +33,9 @@ const SeeDarkDemo = () => {
   }, [outputFileName]);
 
   return (
-      <div className="container">
+    <div className="container" style={{
+      margin: "30px auto 100px auto"
+    }}>
         <div className="row">
           <div className="col-lg-6">
             <InputForm

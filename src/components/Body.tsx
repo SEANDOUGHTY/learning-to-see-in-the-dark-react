@@ -6,7 +6,7 @@ const Body = () => {
   // file URL state
   return (
     <div className="body">
-      <Content />
+      <Content/>
       <SeeDarkDemo />
     </div>
   )

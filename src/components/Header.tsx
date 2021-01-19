@@ -12,10 +12,9 @@ const Header = (): JSX.Element => (
     <Nav className="mr-auto">
       <Nav.Link href="/">Home</Nav.Link>
       <NavDropdown title="Projects" id="basic-nav-dropdown">
-        <NavDropdown.Item href="/">Learning to See in the Dark</NavDropdown.Item>
+        <NavDropdown.Item href="/projects/learning-to-see-in-the-dark">Learning to See in the Dark</NavDropdown.Item>
       </NavDropdown>
-      <Nav.Link href="/">Blog</Nav.Link>
-      <Nav.Link href="/">Contact</Nav.Link>
+      <Nav.Link href="https://sean-doughty.medium.com/">Blog</Nav.Link>
     </Nav>
   </Navbar.Collapse>
 </Navbar>

@@ -39,11 +39,14 @@ function InputForm(props:any): JSX.Element {
     
     axios.post(`${url}/upload`, form_data, {
       headers: {
-        'content-type': 'multipart/form-data'
+        'content-type': 'multipart/form-data',
+        Accept: 'application/json',
+        credentials: 'same-origin'
       },
       'withCredentials': true,
     })
       .then(res => {
+        console.log(res);
         props.outputCallBack(res.data);
         setStatusText("Performing Inference, Please wait");
         setErrorText("");
