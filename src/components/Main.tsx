@@ -46,13 +46,11 @@ const Main = () => {
         <FontAwesomeIcon icon={faDocker} size="6x" className="px-2" />
         <FontAwesomeIcon icon={faAws} size="6x" className="px-2" />
         <h3>Contact</h3>
-        The best way to reach me is through email or LinkedIn:
-        <p>
+        <p> The best way to reach me is through email or LinkedIn: </p>
         <div><FontAwesomeIcon icon={faEnvelope} size="sm" /> <a href="mailto:sean.doughty@outlook.com">sean.doughty@outlook.com</a></div>
         <div><FontAwesomeIcon icon={faLinkedin} size="sm" /> <a href="https://www.linkedin.com/in/doughtysean/">https://www.linkedin.com/in/doughtysean/</a></div>
         <div><FontAwesomeIcon icon={faGithub} size="sm" /> <a href="https://github.com/SEANDOUGHTY/">https://github.com/SEANDOUGHTY/</a></div>
         <div><FontAwesomeIcon icon={faMedium} size="sm" /> <a href="https://sean-doughty.medium.com/">https://sean-doughty.medium.com/</a></div>
-        </p>
       </div>
     </div>
   )

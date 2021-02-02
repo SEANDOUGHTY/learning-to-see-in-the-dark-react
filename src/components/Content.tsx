@@ -9,10 +9,6 @@ const Content = (): JSX.Element => (
     <p>
         This project is a demo for a machine learning exploration I worked on with Andrew Maksymowsky and Frank Gu. We started with a cool <a href="https://cchen156.github.io/paper/18CVPR_SID.pdf">machine learning paper</a> which used a CNN (Convolutional Neural Net) to process low light images. The paper used RAW input images and we wanted to try to instead train the model with <em>.png</em> files.
   </p>
-  <h3>Model</h3>   
-    <p>
-       
-    </p>
   <h3>Architecture</h3>      
       <img src="/img/architecture.png" alt="architecture diagram" style={
         {
@@ -56,14 +52,14 @@ const Content = (): JSX.Element => (
   </div>
     <h3>Code</h3>  
     <p>
-      These are the following code repositories used in the project:
+        These are the following code repositories used in the project:
+    </p>
       <ul>
         <li><a href="https://github.com/frankgu968/learning-to-see-in-the-dark-pytorch">PyTorch Learning to See in the Dark</a></li>
         <li><a href="https://github.com/SEANDOUGHTY/learning-to-see-in-the-dark-react">React Frontend</a></li>
         <li><a href="https://github.com/SEANDOUGHTY/learning-to-see-in-the-dark-flask">Flask API Server</a></li>
         <li><a href="https://github.com/SEANDOUGHTY/learning-to-see-in-the-dark-worker">Inference Worker</a></li>
       </ul>
-    </p>
     </div>
   </div>
 );
