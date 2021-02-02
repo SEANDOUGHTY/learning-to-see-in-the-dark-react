@@ -4,6 +4,7 @@ import axios from "axios"
 
 
 let url = 'https://flask-6s44.onrender.com';
+const MAX_ATTEMPTS = 100;
 
 
 const SeeDarkDemo = () => {
@@ -11,12 +12,18 @@ const SeeDarkDemo = () => {
   const [inputFileURL, setinputFileURL] = useState(null);
   const [outputFileName, setoutputFileName] = useState(null);
   const [outputFileURL, setoutputFileURL] = useState(null);
-  const [processing, setProcessing] = useState(false);  
+  const [processing, setProcessing] = useState(false);
+  const [attempts, setAttempts] = useState(0);
   document.title = "Learning to See In the Dark"  
 
   useEffect(() => {
     const interval = setInterval(() => {
-        
+      if (attempts > MAX_ATTEMPTS) {
+        setoutputFileName(null);
+        setProcessing(false);
+        setAttempts(0);
+        }
+
         if (outputFileName !== null) {
           axios.get(`${url}/download`,
             {
@@ -27,12 +34,17 @@ const SeeDarkDemo = () => {
               setoutputFileURL(URL.createObjectURL(res.data));
               setProcessing(false);
               setoutputFileName(null);
+              setAttempts(0);
             })
-            .catch(err => console.log(err))
+            .catch(err => {
+              console.log(err)
+              console.log(attempts)
+              setAttempts(attempts + 1)
+            })
           }
         }, 5000);
     return () => clearInterval(interval);
-  }, [outputFileName]);
+  }, [outputFileName, attempts]);
 
   return (
 
